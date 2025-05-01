@@ -37,7 +37,6 @@ function populateGradebook_Phillpotts(data) {
 }
 
 
-const gradeData = fetchGradeData();
-populateGradebook(gradeData);
+
 
 
