@@ -8,10 +8,10 @@ app.use(express.static(path.join(__dirname, 'public')));
 app.get('/', (req, res) => res.sendFile(path.join(__dirname, 'public', 'gradebook.html')));
 
 const pool = new Pool({
-    user: 'postgres',
+    user: 'your_username', // Replace with your PostgreSQL username
     host: 'localhost',
-    database: 'Gradebook_Phillpotts',
-    password: 'CTI_110_Waketech',
+    database: 'gradebook_phillpotts',
+    password: 'your_password', // Replace with your PostgreSQL password
     port: 5432,
 });
 
@@ -24,5 +24,7 @@ app.get('/api/grades', async (req, res) => {
         res.status(500).send('Server error');
     }
 });
+
+app.get('/test', (req, res) => res.send('Test route working'));
 
 app.listen(port, () => console.log(`Server running on port ${port}`));
