@@ -1,8 +1,23 @@
-function fetchGradeData() {
-    console.log("Fetching grade data...");
-    const xhr = new XMLHttpRequest();
-    const apiRoute = "http://127.0.0.1:3000/api/grades";
+async function fetchGradeDataModern() {
+    console.log("Fetching grade data (using fetch)...");
+    const apiRoute = "http://localhost:3000/api/grades";
     console.log("API Route:", apiRoute);
+
+    try {
+        const response = await fetch(apiRoute);
+
+        if (!response.ok) {
+            throw new Error(`HTTP error! Status: ${response.status}`);
+        }
+
+        const grades = await response.json();
+        console.log("Success (fetch):", grades);
+        // You would add your code here to process the 'grades' data
+
+    } catch (error) {
+        console.error("Error fetching data:", error);
+    }
+}
 
     xhr.onreadystatechange = function() {
         if (xhr.readyState === XMLHttpRequest.DONE) {

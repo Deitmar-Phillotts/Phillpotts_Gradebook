@@ -15,7 +15,7 @@
             border: 1px solid #ddd;
             padding: 8px;
             text-align: left;
-        }
+                }
 
         th {
             background-color: #f2f2f2;
@@ -26,7 +26,7 @@
 <body>
 
     <h1>Gradebook</h1>
-
+    <script src="gradebook.js"></script>
     <button onclick="fetchGradeData()">Load Grades</button>
 
     <table id="gradebook">
@@ -41,8 +41,27 @@
         <tbody>
             </tbody>
     </table>
+    <script>
+        function fetchGradeData() {
+            fetch('/api/grades')
+                .then(response => response.json())
+                .then(data => {
+                    const tableBody = document.querySelector('#gradebook tbody');
+                    tableBody.innerHTML = ''; // Clear existing rows
 
-    <script src="gradebook.js"></script>
-
+                    data.forEach(student => {
+                        const row = document.createElement('tr');
+                        row.innerHTML = `
+                            <td>${student.name}</td>
+                            <td>${student.assignment1}</td>
+                            <td>${student.assignment2}</td>
+                            <td>${student.assignment3}</td>
+                        `;
+                        tableBody.appendChild(row);
+                    });
+                })
+                .catch(error => console.error('Error fetching grade data:', error));
+        }
+    </script>       
 </body>
 </html>
