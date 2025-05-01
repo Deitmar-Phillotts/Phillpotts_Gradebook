@@ -4,13 +4,23 @@
     "description": "",
     "main": "server.js",
     "scripts": {
-      "test": "echo \"Error: no test specified\" && exit 1"
+        "test": "echo \"Error: no test specified\" && exit 1",
+        "start": "node server.js"
     },
     "keywords": [],
     "author": "",
     "license": "ISC",
     "dependencies": {
-      "express": "^4.18.2",
-      "pg": "^8.11.3"
-    }
-  }
+        "express": "^4.18.2",
+        "pg": "^8.11.3"
+    },
+    "repository": {
+        "type": "git",
+        "url": "git+https://github.com/Deitmar-Phillotts/Phillpotts_Gradebook.git"
+    },
+    "type": "commonjs",
+    "bugs": {
+        "url": "https://github.com/Deitmar-Phillotts/Phillpotts_Gradebook/issues"
+    },
+    "homepage": "https://github.com/Deitmar-Phillotts/Phillpotts_Gradebook#readme"
+}
