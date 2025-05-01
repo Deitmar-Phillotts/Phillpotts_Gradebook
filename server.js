@@ -8,10 +8,10 @@ app.use(express.static(path.join(__dirname, 'public')));
 app.get('/', (req, res) => res.sendFile(path.join(__dirname, 'public', 'gradebook.html')));
 
 const pool = new Pool({
-    user: 'postgres', // Replace with your PostgreSQL username
+    user: 'postgres', 
     host: 'localhost',
-    database: 'Gradebook_Phillpotts', // Exact name
-    password: 'CTI_110_Waketech', // Replace with your PostgreSQL password
+    database: 'Gradebook_Phillpotts',
+    password: 'CTI_110_Waketech',
     port: 5432,
 });
 
